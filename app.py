@@ -9,7 +9,7 @@ st.set_page_config(
 st.title("FraudShield AI")
 
 st.subheader(
-    "Sistema Inteligente de Detecção de Fraudes Financeiras"
+    "Intelligent Financial Fraud Detection System"
 )
 
 df = pd.read_csv(
@@ -23,24 +23,24 @@ suspeitas = df[
 col1, col2, col3 = st.columns(3)
 
 col1.metric(
-    "Transações",
+    "Transactions",
     len(df)
 )
 
 col2.metric(
-    "Fraudes Detectadas",
+    "Fraud Detected",
     len(suspeitas)
 )
 
 col3.metric(
-    "Taxa",
+    "Rate",
     f"{(len(suspeitas)/len(df))*100:.2f}%"
 )
 
 st.divider()
 
 st.subheader(
-    "Transações Suspeitas"
+    "Suspicious Transactions"
 )
 
 st.dataframe(
@@ -50,7 +50,7 @@ st.dataframe(
 st.divider()
 
 st.subheader(
-    "Top 10 maiores transações suspeitas"
+    "Top 10 Highest-Value Suspicious Transactions"
 )
 
 st.bar_chart(
@@ -69,4 +69,27 @@ st.bar_chart(
         .head(10)
         .index
     )["valor"]
+)
+
+st.subheader(
+    "Highest Risk Transactions"
+)
+
+top_risk = (
+    suspeitas
+    .sort_values(
+        by="risk_score",
+        ascending=False
+    )
+    .head(20)
+)
+
+st.dataframe(
+    top_risk[
+        [
+            "valor",
+            "cidade",
+            "risk_score"
+        ]
+    ]
 )
