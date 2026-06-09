@@ -1,36 +1,48 @@
 import pandas as pd
 import random
 
-cidades_normais = [
+cidades = [
     "Campinas",
     "Valinhos",
     "Vinhedo",
-    "Jundiai",
-    "São Paulo"
+    "São Paulo",
+    "Jundiaí"
+]
+
+tipos = [
+    "PIX",
+    "TED",
+    "BOLETO",
+    "CARTAO"
 ]
 
 dados = []
 
-# transações normais
-for _ in range(2000):
+for _ in range(3000):
 
     dados.append({
-        "valor": random.randint(10, 2500),
+        "valor": random.randint(10, 3000),
         "hora": random.randint(6, 23),
-        "cidade": random.choice(cidades_normais)
+        "cidade": random.choice(cidades),
+        "tipo_transacao": random.choice(tipos),
+        "idade_conta": random.randint(180, 5000)
     })
 
-# fraudes simuladas
-for _ in range(50):
+for _ in range(80):
 
     dados.append({
-        "valor": random.randint(10000, 50000),
+        "valor": random.randint(15000, 80000),
         "hora": random.randint(0, 4),
         "cidade": random.choice([
             "Moscou",
             "Pequim",
             "Teerã"
-        ])
+        ]),
+        "tipo_transacao": random.choice([
+            "PIX",
+            "TED"
+        ]),
+        "idade_conta": random.randint(1, 30)
     })
 
 df = pd.DataFrame(dados)
@@ -40,4 +52,4 @@ df.to_csv(
     index=False
 )
 
-print("Base criada com sucesso.")
+print("Dataset generated successfully.")
