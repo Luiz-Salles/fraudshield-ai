@@ -11,7 +11,6 @@ encoder = LabelEncoder()
 
 df["cidade"] = encoder.fit_transform(df["cidade"])
 
-# Apenas as colunas usadas pela IA
 X = df[["valor", "hora", "cidade"]]
 
 modelo = IsolationForest(
@@ -30,9 +29,17 @@ joblib.dump(
     "models/fraud_model.pkl"
 )
 
+df["risk_score"] = (
+    (1 - (
+        (df["score"] - df["score"].min())
+        /
+        (df["score"].max() - df["score"].min())
+    )) * 100
+).round(2)
+
 df.to_csv(
     "data/resultado.csv",
     index=False
 )
 
-print("Modelo treinado com sucesso.")
+print("Successfully Trained Model.")
