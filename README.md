@@ -57,6 +57,24 @@ Using the Isolation Forest algorithm, the platform automatically identifies unus
 
 ---
 
+## Machine Learning Model
+
+Algorithm:
+Isolation Forest
+
+Features Used:
+- Transaction Amount
+- Transaction Hour
+- Transaction City
+- Transaction Channel
+- Account Age
+
+Output:
+- Anomaly Classification
+- Risk Score
+
+---
+
 ## How It Works
 
 ### 1. Synthetic Transaction Generation
@@ -230,6 +248,3 @@ This project demonstrates practical experience with:
 
 GitHub:
 https://github.com/Luiz-Salles
-
-LinkedIn:
-(Add your LinkedIn profile here)
