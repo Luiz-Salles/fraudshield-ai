@@ -18,7 +18,7 @@ Using the Isolation Forest algorithm, the platform automatically identifies unus
 
 ### Executive Dashboard
 
-<img width="1832" height="897" alt="image" src="https://github.com/user-attachments/assets/b202f319-8b2c-4f85-bb4b-c1d2060355d8" />
+<img width="1810" height="876" alt="image" src="https://github.com/user-attachments/assets/bbc0a674-ca03-4e16-b96b-3c11f555db83" />
 
 ### Fraud Detection Map
 
